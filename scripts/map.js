@@ -98,46 +98,53 @@ $(window).on('load', function() {
   /**
    * Assigns points to appropriate layers and clusters them if needed
    */
-  function mapPoints(points, layers) {
+function mapPoints(points, layers) {
     var markerArray = [];
     // check that map has loaded before adding points to it?
     for (var i in points) {
-      var point = points[i];
+        var point = points[i];
 
-      // If icon contains '.', assume it's a path to a custom icon,
-      // otherwise create a Font Awesome icon
-      var iconSize = point['Custom Size'];
-      var size = (iconSize.indexOf('x') > 0)
-        ? [parseInt(iconSize.split('x')[0]), parseInt(iconSize.split('x')[1])]
-        : [32, 32];
+        // If icon contains '.', assume it's a path to a custom icon,
+        // otherwise create a Font Awesome icon
+        var iconSize = point['Custom Size'];
+        var size = (iconSize.indexOf('x') > 0) ?
+            [parseInt(iconSize.split('x')[0]), parseInt(iconSize.split('x')[1])] :
+            [32, 32];
 
-      var anchor = [size[0] / 2, size[1]];
+        var anchor = [size[0] / 2, size[1]];
 
-      var icon = (point['Marker Icon'].indexOf('.') > 0)
-        ? L.icon({
-          iconUrl: point['Marker Icon'],
-          iconSize: size,
-          iconAnchor: anchor
-        })
-        : createMarkerIcon(point['Marker Icon'],
-          'fa',
-          point['Marker Color'].toLowerCase(),
-          point['Icon Color']
-        );
+        var icon = (point['Marker Icon'].indexOf('.') > 0) ?
+            L.icon({
+                iconUrl: point['Marker Icon'],
+                iconSize: size,
+                iconAnchor: anchor
+            }) :
+            createMarkerIcon(
+                point['Marker Icon'],
+                'fa',
+                point['Marker Color'].toLowerCase(),
+                point['Icon Color']
+            );
 
-      if (point.Latitude !== '' && point.Longitude !== '') {
-        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
-          .bindPopup("<b>" + point['Name'] + '</b><br>' +
-          (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
-          point['Description']);
+        if (point.Latitude !== '' && point.Longitude !== '') {
+            var marker = L.marker([point.Latitude, point.Longitude], {
+                    icon: icon
+                })
+                .bindPopup("<b>" + point['Name'] + '</b><br>' +
+                    (point['Image'] ? ('<a href="' + point['Image'] + '" target="_blank"><img src="' + point['Image'] + '"></a><br>') : '') +
+                    point['Description'], {
+                        maxWidth: "auto"
+                    });
 
-        if (layers !== undefined && layers.length !== 1) {
-          marker.addTo(layers[point.Group]);
+            if (layers !== undefined && layers.length !== 1) {
+                marker.addTo(layers[point.Group]);
+            }
+
+            markerArray.push(marker);
         }
-
-        markerArray.push(marker);
-      }
     }
+
+    
 
     var group = L.featureGroup(markerArray);
     var clusters = (getSetting('_markercluster') === 'on') ? true : false;
