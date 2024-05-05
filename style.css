@@ -353,3 +353,7 @@ span.legend-icon {
     color: white;
 }
 
+.leaflet-contro-geocoder-alternatives-minimized {
+    color: white !important;
+}
+
