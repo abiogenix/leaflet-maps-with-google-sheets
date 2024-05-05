@@ -145,21 +145,6 @@ function mapPoints(points, layers) {
         }
     }
 
-  
-
-            // Aggiungi il logo sovrapposto alla mappa
-      var logo = document.createElement('img');
-      logo.src = 'https://upload.wikimedia.org/wikipedia/commons/3/33/Vanamo_Logo.png';
-      logo.alt = 'Logo';
-      logo.className = 'logo';
-      
-      // Posiziona il logo in overlay alla mappa
-      var mapContainer = document.getElementById('map');
-      mapContainer.parentNode.insertBefore(logo, mapContainer.nextSibling);
-
-
-  
-
     var group = L.featureGroup(markerArray);
     var clusters = (getSetting('_markercluster') === 'on') ? true : false;
 
