@@ -345,3 +345,11 @@ span.legend-icon {
 }
   }
 
+.leaflet-control-geocoder-form input {
+    font-size: 120%;
+    border: 0;
+    background-color: transparent;
+    width: 246px;
+    color: white;
+}
+
