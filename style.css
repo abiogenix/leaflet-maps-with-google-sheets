@@ -302,6 +302,7 @@ span.legend-icon {
     left: 10px;
     z-index: 1;
     width: 45px;
+    margin-left: 48%;
 }
 
 #map {
@@ -330,5 +331,6 @@ span.legend-icon {
     background-color: black;
     color: #f8f8f8;
     text-align: center;
+    margin-top: 48px !important;
 }
 
