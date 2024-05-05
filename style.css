@@ -293,3 +293,11 @@ span.legend-icon {
 .leaflet-right {
     right: 1% !important;
 }
+
+/* Stile per il logo */
+.logo {
+    position: absolute; /* Posizionamento assoluto rispetto al contenitore */
+    top: 10px; /* Posizione dal lato superiore */
+    left: 10px; /* Posizione dal lato sinistro */
+    z-index: 1; /* Assicura che il logo sia sopra gli altri elementi */
+}
