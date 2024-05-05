@@ -329,4 +329,6 @@ span.legend-icon {
     background-clip: padding-box;
     background-color: black;
     color: #f8f8f8;
+    text-align: center;
 }
+
