@@ -644,7 +644,7 @@ function mapPoints(points, layers) {
     // Add Nominatim Search control
     if (getSetting('_mapSearch') !== 'off') {
       var geocoder = L.Control.geocoder({
-        //expand: 'click',
+        expand: 'click',
         position: getSetting('_mapSearch'),
         
         geocoder: L.Control.Geocoder.nominatim({
