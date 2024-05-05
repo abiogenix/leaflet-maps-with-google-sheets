@@ -296,8 +296,17 @@ span.legend-icon {
 
 /* Stile per il logo */
 .logo {
-    position: absolute; /* Posizionamento assoluto rispetto al contenitore */
-    top: 10px; /* Posizione dal lato superiore */
-    left: 10px; /* Posizione dal lato sinistro */
-    z-index: 1; /* Assicura che il logo sia sopra gli altri elementi */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    width: 100px;
+}
+
+#map {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 0;
+    visibility: hidden;
 }
