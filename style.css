@@ -156,7 +156,8 @@ form {
   }
 
   .leaflet-left .map-title {
-    width: 98%;
+    width: 60%;
+    margin-top: 10% !important;
   }
 }
 
