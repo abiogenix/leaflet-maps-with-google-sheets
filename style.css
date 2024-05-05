@@ -323,3 +323,10 @@ span.legend-icon {
     background-color: #202020 !important;
     color: #f1f1f1 !important;
 }
+
+.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+    border: none;
+    background-clip: padding-box;
+    background-color: black;
+    color: #f8f8f8;
+}
