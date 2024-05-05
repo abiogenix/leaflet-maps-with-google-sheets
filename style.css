@@ -355,5 +355,6 @@ span.legend-icon {
 
 .leaflet-contro-geocoder-alternatives-minimized {
     color: white !important;
+    background-color: black !important;
 }
 
